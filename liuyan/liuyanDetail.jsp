@@ -1,5 +1,6 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ page isELIgnored="false" %> 
 
 <%
@@ -18,52 +19,45 @@ String path = request.getContextPath();
         <link rel="stylesheet" type="text/css" href="<%=path %>/css/base.css" />
         
         <script language="javascript">
-            function check()
-            {
-                if(document.formAdd.userName.value=="")
-                {
-                    alert("请输入用户名");
-                    return false;
-                }
-                if(document.formAdd.userPw.value=="")
-                {
-                    alert("请输入密码");
-                    return false;
-                }
-                document.formAdd.submit();
-            }
         </script>
 	</head>
 
 	<body leftmargin="2" topmargin="9" background='<%=path %>/img/allbg.gif'>
-			<form action="<%=path %>/adminAdd.action" name="formAdd" method="post">
+			<form action="<%=path %>/gonggaoAdd.action" name="formAdd" method="post">
 				     <table width="98%" align="center" border="0" cellpadding="4" cellspacing="1" bgcolor="#CBD8AC" style="margin-bottom:8px">
 						<tr bgcolor="#EEF4EA">
-					        <td colspan="3" background="<%=path %>/img/wbg.gif" class='title'><span>管理员添加</span></td>
+					        <td colspan="3" background="<%=path %>/img/wbg.gif" class='title'><span>&nbsp;</span></td>
 					    </tr>
 						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 						    <td width="25%" bgcolor="#FFFFFF" align="right">
-						         用户名：
+						          信息内容：
 						    </td>
 						    <td width="75%" bgcolor="#FFFFFF" align="left">
-						        <input type="text" name="userName" size="20"/>
+						        ${requestScope.liuyan.neirong }
 						    </td>
 						</tr>
 						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 						    <td width="25%" bgcolor="#FFFFFF" align="right">
-						        密码：
+						          发布时间：
 						    </td>
 						    <td width="75%" bgcolor="#FFFFFF" align="left">
-						        <input type="password" name="userPw" id="userPw" size="22"/>
+						        ${requestScope.liuyan.liuyanshi }
 						    </td>
 						</tr>
 						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
 						    <td width="25%" bgcolor="#FFFFFF" align="right">
-						        &nbsp;
+						          回复内容：
 						    </td>
 						    <td width="75%" bgcolor="#FFFFFF" align="left">
-						       <input type="button" value="提交" onclick="check()"/>&nbsp; 
-						       <input type="reset" value="重置"/>&nbsp;
+						        ${requestScope.liuyan.huifu }
+						    </td>
+						</tr>
+						<tr align='center' bgcolor="#FFFFFF" onMouseMove="javascript:this.bgColor='red';" onMouseOut="javascript:this.bgColor='#FFFFFF';" height="22">
+						    <td width="25%" bgcolor="#FFFFFF" align="right">
+						         回复内容：
+						    </td>
+						    <td width="75%" bgcolor="#FFFFFF" align="left">
+						        ${requestScope.liuyan.huifushi }
 						    </td>
 						</tr>
 					 </table>
